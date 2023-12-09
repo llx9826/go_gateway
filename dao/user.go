@@ -1,9 +1,9 @@
 package dao
 
 import (
-	"github.com/e421083458/gin_scaffold/dto"
-	"gorm.io/gorm"
 	"github.com/gin-gonic/gin"
+	"github.com/llx9826/gin_gateway/dto"
+	"gorm.io/gorm"
 	"time"
 )
 

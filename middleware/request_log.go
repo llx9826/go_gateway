@@ -2,9 +2,9 @@ package middleware
 
 import (
 	"bytes"
-	"github.com/e421083458/gin_scaffold/public"
 	"github.com/e421083458/golang_common/lib"
 	"github.com/gin-gonic/gin"
+	"github.com/llx9826/gin_gateway/public"
 	"io/ioutil"
 	"time"
 )
@@ -40,8 +40,8 @@ func RequestOutLog(c *gin.Context) {
 	endExecTime := time.Now()
 	response, _ := c.Get("response")
 	st, _ := c.Get("startExecTime")
-
-	startExecTime, _ := st.(time.Time)
+	var startExecTime time.Time
+	startExecTime, _ = st.(time.Time)
 	public.ComLogNotice(c, "_com_request_out", map[string]interface{}{
 		"uri":       c.Request.RequestURI,
 		"method":    c.Request.Method,

@@ -1,9 +1,9 @@
 package controller
 
 import (
-	"github.com/e421083458/gin_scaffold/dto"
-	"github.com/e421083458/gin_scaffold/middleware"
 	"github.com/gin-gonic/gin"
+	"github.com/llx9826/gin_gateway/dto"
+	"github.com/llx9826/gin_gateway/middleware"
 )
 
 type AdminLoginController struct{}

@@ -1,12 +1,12 @@
 package router
 
 import (
-	"github.com/e421083458/gin_scaffold/controller"
-	"github.com/e421083458/gin_scaffold/docs"
-	"github.com/e421083458/gin_scaffold/middleware"
 	"github.com/e421083458/golang_common/lib"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
+	"github.com/llx9826/gin_gateway/controller"
+	"github.com/llx9826/gin_gateway/docs"
+	"github.com/llx9826/gin_gateway/middleware"
 	"github.com/swaggo/files"
 	"github.com/swaggo/gin-swagger"
 )
@@ -105,7 +105,7 @@ func InitRouter(middlewares ...gin.HandlerFunc) *gin.Engine {
 	}
 
 	adminLoginGroup := router.Group("/admin_login")
-	sessions.NewRedisStore(10, "tcp", lib.GetStringConf("base.session.redis_password"), []byte("secret"))
+	sessions.NewRedisStore(10, "tcp", lib.GetStringConf("base.session.redis_password"), string([]byte("secret")))
 	adminLoginGroup.Use()
 	return router
 }
