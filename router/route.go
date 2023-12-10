@@ -105,6 +105,12 @@ func InitRouter(middlewares ...gin.HandlerFunc) *gin.Engine {
 	}
 
 	adminLoginGroup := router.Group("/admin_login")
+
+	adminLoginGroup.Use(middleware.RecoveryMiddleware(), middleware.RequestLog(), middleware.IPAuthMiddleware(), middleware.TranslationMiddleware())
+	{
+		controller.RegisterAdminRegister(adminLoginGroup)
+	}
+
 	sessions.NewRedisStore(10, "tcp", lib.GetStringConf("base.session.redis_password"), string([]byte("secret")))
 	adminLoginGroup.Use()
 	return router

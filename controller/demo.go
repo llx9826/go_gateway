@@ -59,7 +59,7 @@ func (demo *DemoController) Redis(c *gin.Context) {
 	return
 }
 
-// ListPage godoc
+// Bind ListPage godoc
 // @Summary 测试数据绑定
 // @Description 测试数据绑定
 // @Tags 用户
